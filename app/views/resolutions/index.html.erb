@@ -1,0 +1,36 @@
+<h1>Resolutions</h1>
+
+<form method="GET">
+  <div>
+    <input type="text" name="q" value="<%= params[:q] %>" autocomplete="off">
+    <button type="submit">Search</button>
+  </div>
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th>Company</th>
+      <th>Date</th>
+      <th>Overview</th>
+      <th>Extracted?</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @resolutions.each do |resolution| %>
+      <tr>
+        <td>
+          <%= resolution.company.first(50) %>
+        </td>
+        <td><%= resolution.date %></td>
+        <td><%= resolution.overview.first(50) %>...</td>
+        <td><%= resolution.extracted? ? "Yes" : "No" %></td>
+        <td>
+          <a href="<%= resolution_url(resolution) %>">View</a>
+          <a href="<%= resolution.pdf_url %>" target="_blank">PDF</a>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

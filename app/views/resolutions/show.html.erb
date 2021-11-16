@@ -1,0 +1,21 @@
+<%= link_to "Back", resolutions_url %>
+
+<h1><%= @resolution.company %></h1>
+
+<p>
+  <a href="<%= @resolution.pdf_url %>">View PDF</a>
+</p>
+
+<dl>
+  <dt>Date</dt>
+  <dd><%= @resolution.date %></dd>
+
+  <dt>Overview</dt>
+  <dd><%= simple_format(@resolution.overview) %></dd>
+
+  <dt>Context</dt>
+  <dd><%= simple_format(@resolution.context) %></dd>
+
+  <dt>Decision</dt>
+  <dd><%= simple_format(@resolution.decision) %></dd>
+</dl>
